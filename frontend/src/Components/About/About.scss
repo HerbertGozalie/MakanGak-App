@@ -1,0 +1,205 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(to right,hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 225);
+}
+
+.aboutUs{
+  width: 100%;
+  margin-top: -40px;
+  .aboutUsSection {
+      padding: 0rem 1rem;
+      
+      .aboutUs-feature .features-container{
+        margin: 2rem;
+        flex-direction: column;
+      }
+      
+      .aboutUs-feature .feature-title h1{
+        font-size: var(--biggestFontSize);
+        max-width: 280px;
+        line-height: normal;
+        margin-right: 2rem;
+      }
+
+      .aboutUs-feature .feature-text{
+        max-width: 700px;
+        margin-top: 1rem;
+      }
+        
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transition: 2s ease;
+
+        margin: 3rem;
+        border-radius: 3px;
+      }
+      
+
+      .aboutUs-heading {
+        flex-direction: row;
+        justify-content: space-between;
+        
+  
+        margin: 2rem;
+  
+        .aboutUs-text {
+          line-height: 45px;
+          max-width: 510px;
+          font-size: var(--biggestFontSize);
+          background: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          
+        }
+  
+        p {
+          font-weight: 500;
+          line-height: 30px;
+          cursor: pointer;
+          padding-right: 1rem;
+        }
+      }
+  
+      .aboutUs-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        // background-color: var(--cardBG);
+        // border-radius: 5px;
+        // box-shadow: 0 2px 4px rgba(140, 140, 141, 0.549);
+
+  
+        margin-top: 2rem;
+      }
+
+      .aboutUs-container .features-container{
+        flex: 1;
+        margin: 2rem;
+        min-width: 250px;
+        display: unset;
+        flex-direction: column;
+      }
+
+      .aboutUs-container .feature-text {
+        margin-top: 1rem;
+      }
+    }
+}
+
+//MEDIA QUERIES ===============>
+@media screen and (max-width: 1124px){
+  .aboutUs {
+      .aboutUsSection {
+        .aboutUs-feature {
+          flex-direction: column;
+          padding: 0rem 2rem;
+        }
+  
+        .aboutUs-heading {
+          flex-direction: column;
+          align-items: flex-start;
+          
+          .aboutUs-text{
+            max-width: 700px;
+          }
+          p {
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+}
+
+@media screen and (max-width: 840px) {
+  .aboutUs {
+    .aboutUsSection {
+      .aboutUs-feature {
+        flex-direction: column;
+      }
+
+      .aboutUs-heading {
+        flex-direction: column;
+        align-items: flex-start;
+
+        p {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .aboutUs {
+    .aboutUsSection {
+      margin: 10px;
+
+      .aboutUs-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 10px;
+        padding: 0rem 2rem;
+      }
+
+      /* Customizing feature component as per needs */
+      .aboutUs-container {
+        margin: 32px;
+        .features-container {
+          margin: 2rem 0;
+          min-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .aboutUs {
+    .aboutUsSection {
+      margin: 0px;
+
+      .aboutUs-feature {
+        padding: 5px;
+      }
+
+      .aboutUs-feature .feature-title h1 {
+        font-size: var(--h1FontSize);
+        max-width: 280px;
+        line-height: normal;
+        margin-right: 2rem;
+      }
+
+      .aboutUs-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 10px;
+
+        .aboutUs-text {
+          font-size: var(--h1FontSize);
+        }
+      }
+
+      .aboutUs-container {
+        margin: 28px 0px;
+        padding: 5px;
+
+        .features-container {
+          margin: 1rem 0;
+          min-width: 100%;
+        }
+      }
+    }
+  }
+}

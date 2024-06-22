@@ -1,0 +1,199 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(
+    to right,
+    hsl(187, 85%, 43%),
+    hsl(199, 100%, 33%)
+  );
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 225);
+  --cardHover: rgb(255, 255, 255);
+}
+
+.main {
+  width: 100%;
+}
+.main .secTitle {
+  margin-top: -20px;
+}
+.main .secTitle .title {
+  position: relative;
+  width: -moz-max-content;
+  width: max-content;
+  color: var(--textColor);
+  margin: 0;
+  z-index: 2;
+}
+.main .secTitle .title .icon {
+  font-size: 25px;
+  padding-top: 3px;
+}
+.main .secTitle2 {
+  margin-top: 40px;
+}
+.main .secTitle2 .title {
+  position: relative;
+  width: -moz-max-content;
+  width: max-content;
+  color: var(--textColor);
+  margin: 0;
+  z-index: 2;
+}
+.main .secTitle2 .title .icon {
+  font-size: 25px;
+  padding-top: 3px;
+}
+.main .secContent1 {
+  justify-content: center;
+  gap: 1.5rem;
+}
+.main .secContent1 .slick-slide > div {
+  margin: 0 10px;
+}
+.main .secContent1 .slick-prev:before,
+.main .secContent1 .slick-next:before {
+  color: black;
+}
+.main .secContent1 .singleFood {
+  height: 100%;
+  display: grid;
+  row-gap: 10px;
+  border-radius: 10px;
+  align-items: center;
+  background: var(--cardBG);
+  box-shadow: 0 2px 4px rgba(140, 140, 141, 0.549);
+  overflow: hidden;
+}
+.main .secContent1 .singleFood:hover {
+  background: var(--cardHover);
+  box-shadow: 1 4px 4px rgba(85, 85, 114, 0.549);
+  transition: 0.3s ease;
+}
+.main .secContent1 .singleFood .imageDiv {
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+}
+.main .secContent1 .singleFood .imageDiv img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 2s ease;
+}
+.main .secContent1 .singleFood .imageDiv:hover img {
+  transform: scale(1.1);
+}
+.main .secContent1 .singleFood .cardInfo {
+  padding: 1rem;
+  height: 160px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+.main .secContent1 .singleFood .cardInfo .titleFood .foodTitle {
+  color: var(--blackColor);
+  font-size: 1.25rem;
+}
+.main .secContent1 .singleFood .cardInfo .divButton {
+  bottom: 30px;
+}
+.main .secContent1 .singleFood .cardInfo .divButton .button {
+  margin-top: 1rem;
+  color: var(--whiteColor);
+  font-weight: 600;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.main .secContent1 .singleFood .cardInfo .divButton .button .icon {
+  align-self: center;
+  font-size: 18px;
+}
+.main .secContent {
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 10px;
+}
+.main .secContent .singleFood {
+  height: 100%;
+  display: grid;
+  row-gap: 10px;
+  border-radius: 10px;
+  align-items: center;
+  background: var(--cardBG);
+  box-shadow: 0 2px 4px rgba(140, 140, 141, 0.549);
+  overflow: hidden;
+}
+.main .secContent .singleFood:hover {
+  background: var(--cardHover);
+  box-shadow: 1 4px 4px rgba(85, 85, 114, 0.549);
+  transition: 0.3s ease;
+  transform: translateY(-10px);
+}
+.main .secContent .singleFood .imageDiv {
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+}
+.main .secContent .singleFood .imageDiv img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 2s ease;
+}
+.main .secContent .singleFood .imageDiv:hover img {
+  transform: scale(1.1);
+}
+.main .secContent .singleFood .cardInfo {
+  padding: 1rem;
+  height: 160px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+.main .secContent .singleFood .cardInfo .titleFood .foodTitle {
+  color: var(--blackColor);
+  font-size: 1.25rem;
+}
+.main .secContent .singleFood .cardInfo .divButton {
+  bottom: 0;
+}
+.main .secContent .singleFood .cardInfo .divButton .button {
+  margin-top: 1rem;
+  color: var(--whiteColor);
+  font-weight: 600;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.main .secContent .singleFood .cardInfo .divButton .button .icon {
+  align-self: center;
+  font-size: 18px;
+}
+
+@media screen and (min-width: 500px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .secContent {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .secContent .singleFood {
+    height: auto;
+  }
+}
+@media screen and (min-width: 840px) {
+  .secContent {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .secContent .singleFood {
+    height: auto;
+  }
+}/*# sourceMappingURL=main.css.map */

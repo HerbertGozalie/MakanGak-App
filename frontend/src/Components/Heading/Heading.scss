@@ -1,0 +1,157 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(
+    to right,
+    hsl(187, 85%, 43%),
+    hsl(199, 100%, 33%)
+  );
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 225);
+}
+
+.aboutHomeSection {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding-bottom: 30rem;
+
+  video {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    object-fit: cover;
+    opacity: 0.9;
+    filter: brightness(50%);
+  }
+
+  .aboutHomeContent {
+    width: fit-content;
+    height: max-content;
+    padding: 13rem 1.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    color: var(--whiteColor);
+    z-index: 100;
+
+    .aboutHometextDiv {
+      flex-direction: column;
+      padding-top: 1rem;
+        .sloganTextH1 {
+          font-size: 16px;
+          
+        }
+    
+        .aboutHomeTitle {
+          font-weight: 600;
+          font-size: var(--biggestFontSize);
+          
+          justify-content: center;
+          position: relative;
+          font-size: 1.8rem;
+
+    
+          .aboutHomeIcon {
+            font-size: 40px;
+            color: var(--SecondaryColor);
+          }
+        }
+    
+      }
+  }
+
+  
+}
+
+//MEDIA QUERIES ===================>
+@media screen and (max-width: 500px) {
+  .aboutHomeSection {
+    height: 55vh;
+    .aboutHomeContent {
+      .aboutHometextDiv {
+        .sloganTextH1 {
+          font-size: var(--biggestFontSize);
+          font-weight: 600;
+          text-align: center;
+        }
+    
+        .aboutHomeTitle {
+          position: relative;
+          font-size: 1.5rem;
+          width: max-content;
+    
+          .aboutHomeIcon {
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .aboutHomeSection {
+    height: 30vh;
+    .aboutHomeContent {
+      .aboutHometextDiv {
+        .sloganTextH1 {
+          font-size: var(--biggestFontSize);
+            font-weight: 600;
+        }
+
+        .aboutHomeTitle {
+          position: relative;
+          font-size: 1.5rem;
+          width: max-content;
+
+          .aboutHomeIcon{
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 660px) {
+  .aboutHomeSection {
+    height: 40vh;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .aboutHomeSection {
+    height: 60vh;
+  }
+}
+
+@media screen and (min-width: 1240px) {
+  .aboutHomeSection {
+    height: 60vh;
+
+    .aboutHomeContent {
+      padding-left: 0;
+      padding-right: 0;
+
+      .aboutHometextDiv{
+        .sloganTextH1{
+          font-size: var(--biggestFontSize);
+          font-weight: 800;
+        }
+      }
+    }
+  }
+}

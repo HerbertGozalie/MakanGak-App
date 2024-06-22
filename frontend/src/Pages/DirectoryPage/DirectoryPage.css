@@ -1,0 +1,139 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(
+    to right,
+    hsl(187, 85%, 43%),
+    hsl(199, 100%, 33%)
+  );
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 225);
+}
+
+.directoryContent {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 100px 0;
+  font-size: 100px;
+  height: auto;
+}
+.directoryContent .secContent {
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 10px;
+}
+.directoryContent .secContent .singleFood {
+  height: 100%;
+  gap: 50px;
+  border-radius: 10px;
+  align-items: center;
+  background: var(--cardBG);
+  box-shadow: 0 2px 4px rgba(140, 140, 141, 0.549);
+  overflow: hidden;
+  width: 100vh;
+  margin-bottom: 30px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.directoryContent .secContent .singleFood:hover {
+  background: var(--cardHover);
+  box-shadow: 1 4px 4px rgba(85, 85, 114, 0.549);
+  transition: 0.3s ease;
+  transform: translateY(-10px);
+}
+.directoryContent .secContent .singleFood .imageDiv {
+  height: 250px;
+  width: 100%;
+}
+.directoryContent .secContent .singleFood .imageDiv img {
+  height: 400px;
+  width: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 2s ease;
+}
+.directoryContent .secContent .singleFood .imageDiv:hover img {
+  transform: scale(1.1);
+}
+.directoryContent .secContent .singleFood .cardInfo {
+  padding: 1rem;
+  flex-direction: column;
+  width: 800px;
+}
+.directoryContent .secContent .singleFood .cardInfo .foodTitle {
+  color: var(--blackColor);
+  font-size: 1.25rem;
+}
+.directoryContent .secContent .singleFood .cardInfo .continent {
+  gap: 0.5rem;
+}
+.directoryContent .secContent .singleFood .cardInfo .continent .icon {
+  color: var(--textColor);
+  font-size: 18px;
+}
+.directoryContent .secContent .singleFood .cardInfo .continent .name {
+  color: var(--textColor);
+  font-weight: 400;
+  font-size: 14px;
+}
+.directoryContent .secContent .singleFood .cardInfo .fees {
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-top: 1.5px solid var(--greyText);
+  border-bottom: 1.5px solid var(--greyText);
+}
+.directoryContent .secContent .singleFood .cardInfo .fees .grade {
+  color: var(--textColor);
+  max-width: 100px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+.directoryContent .secContent .singleFood .cardInfo .fees .grade small {
+  text-align: center;
+  background: var(--gradientColor);
+  border-radius: 1rem;
+  color: var(--whiteColor);
+  padding: 1px 10px;
+  font-size: 10px;
+}
+.directoryContent .secContent .singleFood .cardInfo .fees .price {
+  font-size: 1.2rem;
+  color: var(--blackColor);
+}
+.directoryContent .secContent .singleFood .cardInfo .desc {
+  font-size: 13.5px;
+  color: var(--textColor);
+  font-weight: 500;
+}
+.directoryContent .secContent .singleFood .cardInfo .button {
+  margin-top: 1rem;
+  color: var(--whiteColor);
+  font-weight: 600;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.directoryContent .secContent .singleFood .cardInfo .button .icon {
+  align-self: center;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .directoryContent .secContent .singleFood {
+    width: 50vh;
+  }
+}/*# sourceMappingURL=DirectoryPage.css.map */

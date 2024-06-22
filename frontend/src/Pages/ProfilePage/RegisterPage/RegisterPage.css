@@ -1,0 +1,258 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(
+    to right,
+    hsl(187, 85%, 43%),
+    hsl(199, 100%, 33%)
+  );
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 225);
+}
+
+.registerPage {
+  height: 130vh;
+  width: 100%;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 7px 50px rgb(214, 223, 213);
+}
+.registerPage .contain {
+  height: 120vh;
+  width: 60%;
+  margin: auto;
+  justify-content: space-between;
+  border-radius: 10px;
+  background: hsl(0, 0%, 85%);
+}
+.registerPage .contain .videoDiv {
+  position: relative;
+  display: flex;
+  flex-basis: 50%;
+  width: 70%;
+  height: 100%;
+  padding: 0 1.5rem;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.registerPage .contain .videoDiv video,
+.registerPage .contain .videoDiv .footerDiv {
+  position: absolute;
+}
+.registerPage .contain .videoDiv video {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.registerPage .contain .videoDiv .textDiv {
+  position: relative;
+}
+.registerPage .contain .videoDiv .textDiv .title {
+  color: var(--whiteColor);
+  font-size: 35px;
+  font-weight: 800;
+}
+.registerPage .contain .videoDiv .textDiv p {
+  color: var(--whiteColor);
+  padding: 1rem;
+  font-weight: 400;
+}
+.registerPage .contain .videoDiv .footerDiv {
+  bottom: 10px;
+  padding: 0 1rem;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.248);
+  left: 10px;
+  right: 10px;
+  justify-content: space-between;
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  border-radius: 10px;
+}
+.registerPage .contain .videoDiv .footerDiv .text {
+  color: var(--whiteColor);
+}
+.registerPage .contain .videoDiv .footerDiv .btn {
+  background: var(--whiteColor);
+  color: var(--PrimaryColor);
+  padding: 0.3rem 1rem;
+  border-radius: 10px;
+  font-weight: 400;
+  transition: 0.3s ease;
+  border: none;
+}
+.registerPage .contain .videoDiv .footerDiv .btn:hover {
+  background: var(--HoverColor);
+  color: var(--blackColor);
+  cursor: pointer;
+}
+.registerPage .contain .formDiv {
+  flex-basis: 50%;
+  margin: auto;
+  flex-direction: column;
+  gap: 1.5rem;
+  transform: translateY(-1rem);
+}
+.registerPage .contain .formDiv .headerDiv {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+.registerPage .contain .formDiv .headerDiv img {
+  width: 60px;
+  padding-bottom: 0.5rem;
+}
+.registerPage .contain .formDiv .headerDiv h3 {
+  font-size: 25px;
+  color: var(--blackColor);
+  font-weight: 600;
+}
+.registerPage .contain .formDiv .form {
+  gap: 0.2rem;
+}
+.registerPage .contain .formDiv .form .inputDiv .icon {
+  color: var(--greyText);
+}
+.registerPage .contain .formDiv .form .inputDiv input {
+  background: none;
+  outline: none;
+  border: none;
+  width: 200px;
+}
+.registerPage .contain .formDiv .form .inputDiv label {
+  color: var(--blackColor);
+  font-weight: 400;
+  font-size: 14px;
+  padding: 0.5rem 0;
+  display: block;
+}
+.registerPage .contain .formDiv .form .inputDiv .input {
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: var(--inputColor);
+  border-radius: 10px;
+}
+.registerPage .contain .formDiv .form .btn {
+  padding: 0.5rem;
+  background: var(--gradientColor);
+  border-radius: 10px;
+  color: var(--whiteColor);
+  align-items: center;
+  margin: auto;
+  margin-top: 15px;
+  justify-content: center;
+  border: none;
+  font-size: 16px;
+  width: 100%;
+  gap: 0.5rem;
+  transition: 0.3s ease;
+}
+.registerPage .contain .formDiv .form .btn .icon {
+  font-size: 25px;
+  transition: 0.3s ease;
+}
+.registerPage .contain .formDiv .form .btn:hover {
+  background: var(--SecondaryColor);
+  cursor: pointer;
+}
+.registerPage .contain .formDiv .form .btn:hover .icon {
+  transform: translateX(5px);
+}
+.registerPage .contain .formDiv .form .forgotPassword {
+  font-size: 13px;
+  color: var(--blackColor);
+  opacity: 0.7;
+  text-align: center;
+}
+.registerPage .contain .formDiv .form .forgotPassword a {
+  text-decoration: underline;
+  cursor: pointer;
+  opacity: 1;
+}
+
+@media screen and (max-width: 602px) {
+  .registerPage .contain {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  .registerPage .contain .videoDiv {
+    width: 100%;
+  }
+  .registerPage .contain .videoDiv .textDiv .title {
+    font-size: 20px;
+  }
+  .registerPage .contain .videoDiv .textDiv p {
+    padding: 1rem;
+  }
+  .registerPage .contain .videoDiv .footerDiv .text {
+    font-size: 12px;
+  }
+  .registerPage .contain .videoDiv .footerDiv .btn {
+    padding: 0.4rem 1.5rem;
+  }
+  .registerPage .contain .formDiv {
+    gap: 1rem;
+    transform: translateY(-0.5rem);
+  }
+  .registerPage .contain .formDiv .headerDiv {
+    padding: 1rem 0;
+  }
+  .registerPage .contain .formDiv .headerDiv img {
+    width: 40px;
+  }
+  .registerPage .contain .formDiv .headerDiv h3 {
+    font-size: 20px;
+  }
+  .registerPage .contain .formDiv .headerDiv .form {
+    gap: 0.5rem;
+  }
+  .registerPage .contain .formDiv .headerDiv .form .inputDiv input {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 678px) {
+  .registerPage .contain .videoDiv .textDiv .title {
+    font-size: 25px;
+  }
+  .registerPage .contain .videoDiv .textDiv p {
+    padding: 1rem;
+  }
+  .registerPage .contain .videoDiv .footerDiv .text {
+    font-size: 12px;
+  }
+  .registerPage .contain .videoDiv .footerDiv .btn {
+    padding: 0.8rem 1.5rem;
+  }
+  .registerPage .contain .formDiv .headerDiv {
+    padding: 1.5rem 0;
+  }
+  .registerPage .contain .formDiv .headerDiv h3 {
+    font-size: 20px;
+  }
+  .registerPage .contain .formDiv .headerDiv .form .inputDiv input {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+@media screen and (max-width: 927px) {
+  .registerPage .contain {
+    width: 85%;
+  }
+}/*# sourceMappingURL=RegisterPage.css.map */
