@@ -95,12 +95,12 @@
       border-radius: 10px;
       overflow: hidden;
 
-      video,
+      img,
       .footerDiv {
         position: absolute;
       }
 
-      video {
+      img {
         height: 100%;
         width: 100%;
         object-fit: cover;
@@ -113,7 +113,7 @@
 
       .textDiv {
         position: relative;
-
+        margin-bottom: 400px;
         .title {
           color: var(--whiteColor);
           font-size: 35px;

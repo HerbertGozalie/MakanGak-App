@@ -46,11 +46,11 @@
   border-radius: 10px;
   overflow: hidden;
 }
-.registerPage .contain .videoDiv video,
+.registerPage .contain .videoDiv img,
 .registerPage .contain .videoDiv .footerDiv {
   position: absolute;
 }
-.registerPage .contain .videoDiv video {
+.registerPage .contain .videoDiv img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
@@ -62,6 +62,7 @@
 }
 .registerPage .contain .videoDiv .textDiv {
   position: relative;
+  margin-bottom: 400px;
 }
 .registerPage .contain .videoDiv .textDiv .title {
   color: var(--whiteColor);
