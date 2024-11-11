@@ -1,0 +1,159 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(to right,hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 225);
+}
+
+.aboutUs {
+  width: 100%;
+  margin-top: -40px;
+}
+.aboutUs .aboutUsSection {
+  padding: 0rem 1rem;
+}
+.aboutUs .aboutUsSection .aboutUs-feature .features-container {
+  margin: 2rem;
+  flex-direction: column;
+}
+.aboutUs .aboutUsSection .aboutUs-feature .feature-title h1 {
+  font-size: var(--biggestFontSize);
+  max-width: 280px;
+  line-height: normal;
+  margin-right: 2rem;
+}
+.aboutUs .aboutUsSection .aboutUs-feature .feature-text {
+  max-width: 700px;
+  margin-top: 1rem;
+}
+.aboutUs .aboutUsSection img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 2s ease;
+  margin: 3rem;
+  border-radius: 3px;
+}
+.aboutUs .aboutUsSection .aboutUs-heading {
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2rem;
+}
+.aboutUs .aboutUsSection .aboutUs-heading .aboutUs-text {
+  line-height: 45px;
+  max-width: 510px;
+  font-size: var(--biggestFontSize);
+  background: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.aboutUs .aboutUsSection .aboutUs-heading p {
+  font-weight: 500;
+  line-height: 30px;
+  cursor: pointer;
+  padding-right: 1rem;
+}
+.aboutUs .aboutUsSection .aboutUs-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 2rem;
+}
+.aboutUs .aboutUsSection .aboutUs-container .features-container {
+  flex: 1;
+  margin: 2rem;
+  min-width: 250px;
+  display: unset;
+  flex-direction: column;
+}
+.aboutUs .aboutUsSection .aboutUs-container .feature-text {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 1124px) {
+  .aboutUs .aboutUsSection .aboutUs-feature {
+    flex-direction: column;
+    padding: 0rem 2rem;
+  }
+  .aboutUs .aboutUsSection .aboutUs-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .aboutUs .aboutUsSection .aboutUs-heading .aboutUs-text {
+    max-width: 700px;
+  }
+  .aboutUs .aboutUsSection .aboutUs-heading p {
+    margin-top: 1rem;
+  }
+}
+@media screen and (max-width: 840px) {
+  .aboutUs .aboutUsSection .aboutUs-feature {
+    flex-direction: column;
+  }
+  .aboutUs .aboutUsSection .aboutUs-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .aboutUs .aboutUsSection .aboutUs-heading p {
+    margin-top: 1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .aboutUs .aboutUsSection {
+    margin: 10px;
+    /* Customizing feature component as per needs */
+  }
+  .aboutUs .aboutUsSection .aboutUs-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px;
+    padding: 0rem 2rem;
+  }
+  .aboutUs .aboutUsSection .aboutUs-container {
+    margin: 32px;
+  }
+  .aboutUs .aboutUsSection .aboutUs-container .features-container {
+    margin: 2rem 0;
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .aboutUs .aboutUsSection {
+    margin: 0px;
+  }
+  .aboutUs .aboutUsSection .aboutUs-feature {
+    padding: 5px;
+  }
+  .aboutUs .aboutUsSection .aboutUs-feature .feature-title h1 {
+    font-size: var(--h1FontSize);
+    max-width: 280px;
+    line-height: normal;
+    margin-right: 2rem;
+  }
+  .aboutUs .aboutUsSection .aboutUs-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px;
+  }
+  .aboutUs .aboutUsSection .aboutUs-heading .aboutUs-text {
+    font-size: var(--h1FontSize);
+  }
+  .aboutUs .aboutUsSection .aboutUs-container {
+    margin: 28px 0px;
+    padding: 5px;
+  }
+  .aboutUs .aboutUsSection .aboutUs-container .features-container {
+    margin: 1rem 0;
+    min-width: 100%;
+  }
+}/*# sourceMappingURL=About.css.map */

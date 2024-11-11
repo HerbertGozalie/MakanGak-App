@@ -1,0 +1,67 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(to right,
+      hsl(187, 85%, 43%),
+      hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 225);
+  --cardHover: rgb(255, 255, 255);
+}
+
+.contactFeatureDiv {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background: var(--bodyColor);
+  box-shadow: 0 2px 4px rgba(140, 140, 141, 0.25);
+
+  &:hover {
+    background: var(--cardHover);
+    box-shadow: 1 4px 4px rgba(85, 85, 114, 0.549);
+    transition: 0.3s ease;
+    transform: translateY(-10px);
+  }
+
+  .contactInfo {
+    padding: 1rem;
+    width: auto;
+
+    .info {
+      width: auto;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 3rem 0 0rem;
+
+      .infoTitle {
+        font-size: var(--h2FontSize);
+        color: var(--blackColor);
+      }
+    }
+
+    .infoDesc {
+      font-size: var(--smallFontSize);
+      color: var(--textColor);
+      font-weight: 500;
+    }
+
+    .infoLink{
+      padding-top: 1rem;
+      .contactLink {
+        font-size: var(--smallFontSize);
+        color: var(--blackColor);
+        font-weight: bold;
+        display: inline-block;
+        text-decoration: underline; 
+      }
+    }
+  }
+}
+
+

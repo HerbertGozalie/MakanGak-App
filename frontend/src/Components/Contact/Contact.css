@@ -1,0 +1,116 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(
+    to right,
+    hsl(187, 85%, 43%),
+    hsl(199, 100%, 33%)
+  );
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 225);
+  --cardHover: rgb(255, 255, 255);
+}
+
+.contact {
+  width: 100%;
+}
+.contact .contactContent {
+  justify-content: center;
+  gap: 1.5rem;
+}
+.contact .wrapper {
+  height: auto;
+  width: 100%;
+  margin: 4rem 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.contact .wrapper .question {
+  padding: 2rem 0;
+}
+.contact .wrapper .question h1 {
+  font-size: var(--biggestFontSize);
+  color: var(--blackColor);
+}
+.contact .wrapper .accordionContent .item {
+  margin-bottom: 5px;
+  padding: 10px 20px;
+}
+.contact .wrapper .accordionContent .item .title {
+  align-items: flex-start;
+  font-size: var(--h2FontSize);
+  color: var(--blackColor);
+  cursor: pointer;
+}
+.contact .wrapper .accordionContent .item .title .insideTitle {
+  padding-top: 5px;
+  padding-left: 5px;
+  width: 100%;
+  justify-content: space-between;
+}
+.contact .wrapper .accordionContent .item .content2 {
+  font-size: var(--normalFontSize);
+  color: var(--textColor);
+  font-weight: 500;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+}
+.contact .wrapper .accordionContent .item .show {
+  height: auto;
+  max-height: 9999px;
+  margin-left: 2.8rem;
+  transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+}
+
+@media screen and (min-width: 1124px) {
+  .contact .contactContent {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .contact .wrapper .accordionContent {
+    max-width: 50%;
+  }
+}
+@media screen and (max-width: 1123px) {
+  .contact .contactContent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact .wrapper .accordionContent {
+    width: 75%;
+  }
+}
+@media screen and (min-width: 501px) {
+  .contact .wrapper .question {
+    text-align: center;
+  }
+  .contact .wrapper .accordionContent {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .contact .contactContent {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .contact .wrapper .question {
+    text-align: center;
+  }
+  .contact .wrapper .question h1 {
+    font-size: var(--h1FontSize);
+  }
+  .contact .wrapper .accordionContent {
+    width: 100%;
+  }
+  .contact .wrapper .accordionContent .item .title .questionIcon {
+    align-items: center;
+  }
+  .contact .wrapper .accordionContent .item .title .insideTitle h5 {
+    font-weight: 600;
+  }
+}/*# sourceMappingURL=Contact.css.map */

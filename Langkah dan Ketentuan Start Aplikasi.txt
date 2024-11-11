@@ -1,0 +1,15 @@
+Langkah-langkah buka application:
+1. Buat database di XAMPP phpmyadmin bernama "makangak"
+2. Buat table "account" dengan colomn "id", "fullname", "email", "username", "password"
+3. Buat table "email" dengan colomn "id", "email"
+4. Di folder MakanGak-App, pencet location bar dan pencet "cmd", kemudian ketik "code ." untuk buka VS Code
+5. Pencet ctrl+shift+`, kemudian tulis "cd backend" di terminal
+6. Tulis "npm start"
+7. Pencet ctrl+shift+` lagi
+8. Tulis "cd frontend"
+9. Tulis "npm install"
+10. Tulis "npm run dev"
+11. Pencet link vite
+12. Mulai pakai aplikasi
+
+Catatan: Sudah install node di PC

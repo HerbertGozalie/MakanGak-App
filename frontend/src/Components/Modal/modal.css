@@ -1,0 +1,174 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(
+    to right,
+    hsl(187, 85%, 43%),
+    hsl(199, 100%, 33%)
+  );
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 225);
+  --cardHover: rgb(255, 255, 255);
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+.modal .modal-content {
+  width: 100%;
+  background-color: var(--bodyColor);
+  margin: 15px;
+  padding: 20px;
+  border: 1px solid var(--greyText);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.modal .modal-content .overlay {
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  background: var(--gradientColor);
+  border: 5px solid var(--bodyColor);
+  opacity: 0.5;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  top: 0px;
+  left: 0px;
+}
+.modal .modal-content .close {
+  font-size: 25px;
+  color: var(--greyText);
+  transform: translateY(5px);
+  float: right;
+}
+.modal .modal-content .close:hover,
+.modal .modal-content .close:focus {
+  color: var(--SecondaryColor);
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal .modal-content .modal-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+.modal .modal-content .modal-header .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.modal .modal-content .modal-header .user-info .profile-picture {
+  width: 70px;
+  height: 70px;
+  border: 3px solid var(--whiteColor);
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+  -o-object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+.modal .modal-content .modal-header .user-info .profileUsername {
+  font-size: var(--h2FontSize);
+  color: var(--blackColor);
+  font-weight: 600;
+}
+.modal .modal-content .modal-header .profileEmail {
+  font-size: var(--smallFontSize);
+  color: var(--textColor);
+}
+.modal .modal-content .modal-body {
+  margin-top: 20px;
+}
+.modal .modal-content .modal-body .form-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-top: 1px solid var(--greyText);
+}
+.modal .modal-content .modal-body .form-group label {
+  font-size: var(--smallFontSize);
+  color: var(--blackColor);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.modal .modal-content .modal-body .form-group .profile-photo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+.modal .modal-content .modal-body .profilePhoto {
+  flex-direction: column;
+  border-bottom: 1px solid var(--greyText);
+}
+.modal .modal-content .modal-body .profilePhoto .rightSideProfilePhoto {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 90px;
+}
+.modal .modal-content .modal-body .profilePhoto .rightSideProfilePhoto .buttonAddProfile {
+  color: var(--whiteColor);
+  font-weight: 500;
+  margin: 0;
+}
+.modal .modal-content .modal-body .form-group input[type=text],
+.modal .modal-content .modal-body .form-group input[type=email] {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid var(--greyText);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.modal .modal-content .modal-body .form-group input[type=file] {
+  display: none;
+}
+.modal .modal-content .modal-body .saveButton {
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+}
+.modal .modal-content .modal-body .saveButton .btn {
+  color: var(--whiteColor);
+  font-weight: 500;
+}
+
+@media screen and (min-width: 800px) {
+  .modal .modal-content {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .modal .modal-content {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .modal .modal-content .saveButton {
+    gap: 5px;
+  }
+}/*# sourceMappingURL=modal.css.map */

@@ -1,0 +1,82 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(to right,hsl(187, 85%, 43%),hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 225);
+  --cardHover: rgb(255, 255, 255);
+}
+
+.features-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+
+  margin: 1rem;
+
+  .feature-title{
+    flex: 1;
+    max-width: 280px;
+    margin-right: 2rem;
+
+    h1{
+      font-weight: 800;
+      font-size: var(--h3FontSize);
+      line-height: 24px;
+      letter-spacing: -0.04em;
+      color: var(--textColor);
+    }
+
+    div{
+      width: 38px;
+      height: 3px;
+      background: var(--gradientColor);
+      box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  .feature-text{
+    flex: 2;
+    max-width:790px;
+    display: flex;
+
+    p{
+      font-weight: 500;
+      font-size: var(--normalFontSize);
+      line-height: 24px;  
+      
+
+      color: var(--textColor);
+    }
+  }
+}
+
+//MEDIA QUERIES ===============>
+@media screen and (max-width: 550px){
+
+  .features-container {
+      margin: 1rem 0;
+
+      .feature-title {
+          h1{
+            font-size: var(--normalFontSize);
+            line-height: 22px;
+          }
+        }
+      .feature-text {
+          p {
+            font-size: var(--smallFontSize);
+            line-height: 20px;
+          }
+      }
+    }
+}

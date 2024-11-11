@@ -1,0 +1,105 @@
+.secContent1 .slick-slide > div {
+  margin: 0 10px;
+}
+.secContent1 .slick-prev:before,
+.secContent1 .slick-next:before {
+  color: black;
+}
+
+.content {
+  justify-content: center;
+  height: 105vh;
+  margin-bottom: 8rem;
+}
+.content .singleFood {
+  height: 100%;
+  border-radius: 10px;
+  background: var(--cardBG);
+  box-shadow: 0 2px 4px rgba(140, 140, 141, 0.549);
+  overflow: hidden;
+  width: 80%;
+  margin: 5rem auto;
+}
+.content .singleFood:hover {
+  background: var(--cardHover);
+  box-shadow: 1 4px 4px rgba(85, 85, 114, 0.549);
+  transition: 0.3s ease;
+}
+.content .singleFood .imageDiv {
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+}
+.content .singleFood .imageDiv img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 2s ease;
+}
+.content .singleFood .imageDiv:hover img {
+  transform: scale(1.1);
+}
+.content .singleFood .cardInfo {
+  padding: 1rem;
+}
+.content .singleFood .cardInfo .foodTitle {
+  color: var(--blackColor);
+  font-size: 1.25rem;
+}
+.content .singleFood .cardInfo .continent {
+  gap: 0.5rem;
+}
+.content .singleFood .cardInfo .continent .icon {
+  color: var(--textColor);
+  font-size: 18px;
+}
+.content .singleFood .cardInfo .continent .name {
+  color: var(--textColor);
+  font-weight: 400;
+  font-size: 14px;
+}
+.content .singleFood .cardInfo .fees {
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-top: 1.5px solid var(--greyText);
+  border-bottom: 1.5px solid var(--greyText);
+}
+.content .singleFood .cardInfo .fees .grade {
+  color: var(--textColor);
+  max-width: 100px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content .singleFood .cardInfo .fees .grade small {
+  text-align: center;
+  background: var(--gradientColor);
+  border-radius: 1rem;
+  color: var(--whiteColor);
+  padding: 1px 10px;
+  font-size: 10px;
+}
+.content .singleFood .cardInfo .fees .price {
+  font-size: 1.2rem;
+  color: var(--blackColor);
+}
+.content .singleFood .cardInfo .desc {
+  font-size: 13.5px;
+  color: var(--textColor);
+  font-weight: 500;
+}
+.content .singleFood .cardInfo .button {
+  margin-top: 1rem;
+  color: var(--whiteColor);
+  font-weight: 600;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.content .singleFood .cardInfo .button .icon {
+  align-self: center;
+  font-size: 18px;
+}/*# sourceMappingURL=RestaurantPage.css.map */
