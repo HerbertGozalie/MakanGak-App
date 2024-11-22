@@ -3,17 +3,16 @@ const mysql = require("mysql");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
-
 const app = express();
 
 // Middleware
-app.use(cookieParser());
 app.use(cors({
   origin: "http://localhost:5173",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
 app.use(express.json());
+app.use(cookieParser());
 
 // Database connection
 const db = mysql.createConnection({
