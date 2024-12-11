@@ -5,7 +5,8 @@ import Validation from "./RegisterValidation";
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import video from "../../../assets/video2.mp4";
+// import video from "../../../assets/video2.mp4";
+import bisnis from "../../../assets/bisnis.jpg";
 import { FaUserShield } from "react-icons/fa";
 import { BsFillShieldLockFill } from "react-icons/bs";
 import { AiOutlineSwapRight } from "react-icons/ai";
@@ -84,11 +85,16 @@ function RegisterPage() {
       <div className="registerPage flex" data-aos="fade-right">
         <div className="contain flex">
           <div className="videoDiv">
-            <video src={video} autoPlay muted loop></video>
-
+            {/* <video src={video} autoPlay muted loop></video> */}
+            <img src={bisnis} alt="" />
             <div className="textDiv">
-              <h2 className="title"> Solusi Laparmu, Kapanpun & Di Manapun</h2>
-              <p>Lapar? Tinggal Klik!</p>
+              {/* <h2 className="title"> Solusi Laparmu, Kapanpun & Di Manapun</h2>
+              <p>Lapar? Tinggal Klik!</p> */}
+              <h2 className="title">
+                {" "}
+                Solusi Masa Depan Kamu, Kapanpun & Di Manapun
+              </h2>
+              <p>Bingung? Tinggal Klik!</p>
             </div>
 
             <div className="footerDiv flex">

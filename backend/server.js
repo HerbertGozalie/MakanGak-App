@@ -1,24 +1,20 @@
-require("dotenv").config();
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
-
 const app = express();
 
+// Middleware
+app.use(cors({
+  origin: "http://localhost:5173",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
+app.use(express.json());
 app.use(cookieParser());
 
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
-
-app.use(express.json());
-
+// Database connection
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -28,153 +24,118 @@ const db = mysql.createConnection({
 
 db.connect((err) => {
   if (err) {
-    console.error("Database connection failed: " + err.stack);
-    return;
+    console.error("Database connection failed:", err.stack);
+  } else {
+    console.log("Connected to database.");
   }
-  console.log("Connected to database.");
 });
 
+// Utility functions
+const sendError = (res, status, message) => res.status(status).json({ error: message });
+
+// Routes
 app.post("/email", (req, res) => {
+  const { email } = req.body;
+  if (!email) return sendError(res, 400, "Email is required");
+
   const checkEmailSql = "SELECT * FROM email WHERE email = ?";
   const insertEmailSql = "INSERT INTO email (email) VALUES (?)";
-  const email = req.body.email;
 
-  // First, check if the email already exists
   db.query(checkEmailSql, [email], (err, result) => {
-    if (err) {
-      console.error("Error checking email:", err);
-      return res.status(500).json({ error: "Database error" });
-    }
-
+    if (err) return sendError(res, 500, "Database error");
     if (result.length > 0) {
-      // Email already exists
-      return res.status(409).json({ error: "Email already subscribed before" });
+      return res.status(409).json({ error: "Email already subscribed" });
     }
-
-    // Email does not exist, proceed to insert
-    db.query(insertEmailSql, [email], (err, data) => {
-      if (err) {
-        console.error("Error inserting email:", err);
-        return res.status(500).json({ error: "Database error" });
-      }
-
-      return res.status(201).json(data);
+    db.query(insertEmailSql, [email], (err) => {
+      if (err) return sendError(res, 500, "Database error");
+      res.status(201).json({ message: "Email subscribed successfully" });
     });
   });
 });
 
 app.post("/register", (req, res) => {
-  const checkEmailSql = "SELECT * FROM account WHERE email = ?";
-  const insertAccountSql =
-    "INSERT INTO account (fullname, email, username, password) VALUES (?)";
   const { fullname, email, username, password } = req.body;
+  if (!fullname || !email || !username || !password) {
+    return sendError(res, 400, "All fields are required");
+  }
 
-  // First, check if the email already exists
+  const checkEmailSql = "SELECT * FROM account WHERE email = ?";
+  const insertAccountSql = "INSERT INTO account (fullname, email, username, password) VALUES (?)";
+
   db.query(checkEmailSql, [email], (err, result) => {
-    if (err) {
-      console.error("Error checking email:", err);
-      return res.status(500).json({ error: "Database error" });
-    }
-
+    if (err) return sendError(res, 500, "Database error");
     if (result.length > 0) {
-      // Email already exists
       return res.status(409).json({ error: "Email already registered" });
     }
-
-    // Email does not exist, proceed to insert the new account
-    const values = [fullname, email, username, password];
-    db.query(insertAccountSql, [values], (err, data) => {
-      if (err) {
-        console.error("Error inserting account:", err);
-        return res.status(500).json({ error: "Database error" });
-      }
-
-      return res
-        .status(201)
-        .json({ message: "Account registered successfully", data });
+    db.query(insertAccountSql, [[fullname, email, username, password]], (err) => {
+      if (err) return sendError(res, 500, "Database error");
+      res.status(201).json({ message: "Account registered successfully" });
     });
   });
 });
 
 app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+    return sendError(res, 400, "Username and password are required");
+  }
+
   const sql = "SELECT * FROM account WHERE username = ? AND password = ?";
-  db.query(sql, [req.body.username, req.body.password], (err, result) => {
-    if (err) return res.json({ loginStatus: false, Error: "Query error" });
-    if (result.length > 0) {
-      const token = jwt.sign({ userId: result[0].id }, "jwt_secret_key", {
-        expiresIn: "1d",
-      });
-      res.cookie("token", token, { httpOnly: true, secure: true });
-      return res.json({ loginStatus: true, token });
-    } else {
-      return res.json({
-        loginStatus: false,
-        Error: "wrong username or password",
-      });
+
+  db.query(sql, [username, password], (err, result) => {
+    if (err) return sendError(res, 500, "Database error");
+    if (result.length === 0) {
+      return res.status(401).json({ loginStatus: false, error: "Invalid username or password" });
     }
+    const token = jwt.sign({ userId: result[0].id }, "jwt_secret_key", { expiresIn: "1d" });
+    res.cookie("token", token, { httpOnly: true, secure: true });
+    res.json({ loginStatus: true, token });
   });
 });
 
 app.get("/profile", authenticateToken, (req, res) => {
-  const userId = req.user.userId;
-
   const sql = "SELECT * FROM account WHERE id = ?";
-  db.query(sql, [userId], (err, result) => {
-    if (err) {
-      console.error("Error fetching profile data:", err.message);
-      return res.status(500).json({ error: "Internal server error" });
-    }
+  db.query(sql, [req.user.userId], (err, result) => {
+    if (err) return sendError(res, 500, "Database error");
     if (result.length === 0) {
       return res.status(404).json({ error: "User not found" });
     }
-    const profile = result[0];
-    profile.image = `/uploads/${profile.image}`;
-    res.json(profile);
+    res.json(result[0]);
   });
 });
 
 app.put("/update-user", authenticateToken, (req, res) => {
-  const userId = req.user.userId;
   const { fullname, email, username } = req.body;
-
   if (!fullname || !email || !username) {
-    return res.status(400).json({ error: "Missing required fields" });
+    return sendError(res, 400, "All fields are required");
   }
 
-  const sql =
-    "UPDATE account SET fullname = ?, email = ?, username = ? WHERE id = ?";
-  const values = [fullname, email, username, userId];
-  db.query(sql, values, (err, result) => {
-    if (err) {
-      console.error("Error updating user data:", err.message);
-      return res.status(500).json({ error: "Internal server error" });
-    }
+  const sql = "UPDATE account SET fullname = ?, email = ?, username = ? WHERE id = ?";
+  db.query(sql, [fullname, email, username, req.user.userId], (err) => {
+    if (err) return sendError(res, 500, "Database error");
     res.json({ message: "User updated successfully" });
   });
 });
 
+app.get("/logout", (req, res) => {
+  res.clearCookie("token");
+  res.json({ message: "Logout successful" });
+});
+
+// Authentication Middleware
 function authenticateToken(req, res, next) {
   const token = req.cookies.token;
-
-  if (!token) {
-    return res.status(401).json({ error: "Authentication token missing" });
-  }
+  if (!token) return sendError(res, 401, "Authentication token missing");
 
   jwt.verify(token, "jwt_secret_key", (err, user) => {
-    if (err) {
-      return res.status(403).json({ error: "Invalid authentication token" });
-    }
+    if (err) return sendError(res, 403, "Invalid authentication token");
     req.user = user;
     next();
   });
 }
 
-app.get("/logout", (req, res) => {
-  res.clearCookie("token");
-  return res.json({ Status: "Success" });
-});
-
-const PORT = process.env.PORT || 8081;
+// Start server
+const PORT = 8081;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
