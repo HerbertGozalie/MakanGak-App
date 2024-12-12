@@ -26,7 +26,7 @@ const Footer = () => {
   const handleInput = (event) => {
     setValues((prev) => ({
       ...prev,
-      [event.target.name]: [event.target.value],
+      [event.target.name]: event.target.value,
     }));
   };
   const handleSubmit = (event) => {
@@ -35,7 +35,7 @@ const Footer = () => {
     setErrors(err);
     if (err.email === "") {
       axios
-        .post("http://localhost:8081/email", values)
+        .post("http://localhost:8081/api/emails/email", values)
         .then((response) => {
           alert(response.data.message || "Email registered successfully");
           window.location.reload();

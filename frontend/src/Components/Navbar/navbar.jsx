@@ -41,7 +41,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     axios
-      .get("http://localhost:8081/logout")
+      .get("http://localhost:8081/api/accounts/logout")
       .then(() => {
         navigate("/loginPage");
       })

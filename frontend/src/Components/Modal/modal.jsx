@@ -12,7 +12,7 @@ const Modal = ({ toggleModal }) => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get("http://localhost:8081/profile", {
+        const response = await axios.get("http://localhost:8081/api/accounts/profile", {
           withCredentials: true, // Important for sending cookies in the request
         });
         setProfile(response.data);
@@ -39,7 +39,7 @@ const Modal = ({ toggleModal }) => {
 
     try {
       const response = await axios.put(
-        "http://localhost:8081/update-user",
+        "http://localhost:8081/api/accounts/update-user",
         { fullname, email, username },
         {
           withCredentials: true, // Include authentication cookie in the request

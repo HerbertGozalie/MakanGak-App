@@ -37,9 +37,9 @@ function RegisterPage() {
   const handleInput = (event) => {
     setValues((prev) => ({
       ...prev,
-      [event.target.name]: [event.target.value],
+      [event.target.name]: event.target.value, // Remove the array wrapping
     }));
-  };
+  };  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -51,13 +51,15 @@ function RegisterPage() {
       err.username === "" &&
       err.password === ""
     ) {
+      console.log("Form Values:", values); // Add this before the Axios call
       axios
-        .post("http://localhost:8081/register", values)
+        .post("http://localhost:8081/api/accounts/register", values)
         .then((response) => {
           alert(response.data.message || "Account registered successfully");
           navigate("/LoginPage");
         })
         .catch((error) => {
+          console.error("Error object:", error); // Log the full error object
           if (
             error.response &&
             error.response.data &&
@@ -68,6 +70,7 @@ function RegisterPage() {
             alert("An unexpected error occurred");
           }
         });
+        
     }
   };
 

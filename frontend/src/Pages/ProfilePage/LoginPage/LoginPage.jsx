@@ -30,7 +30,7 @@ export default function LoginPage() {
   const handleInput = (event) => {
     setValues((prev) => ({
       ...prev,
-      [event.target.name]: [event.target.value],
+      [event.target.name]: event.target.value,
     }));
   };
 
@@ -41,7 +41,7 @@ export default function LoginPage() {
     setErrors(err);
     if (err.username === "" && err.password === "") {
       axios
-        .post("http://localhost:8081/login", values)
+        .post("http://localhost:8081/api/accounts/login", values)
         .then((result) => {
           if (result.data.loginStatus) {
             navigate("/HomePage");
