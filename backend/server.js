@@ -13,11 +13,15 @@ const PORT = process.env.PORT || 8081;
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173", // Local frontend
+      "https://makan-gak-app-fullstack.vercel.app", // Deployed frontend
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+    credentials: true, // Allow cookies
   })
 );
+
 
 app.use(express.json());
 app.use(cookieParser());
